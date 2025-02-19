@@ -11,7 +11,7 @@ A node that converts a depth image into a 3D point cloud
 
 # parameters
 |Name|Type|Description|
-|---|---|---|---|
+|---|---|---|
 |image_type|string|image type(depth or rgbd)|
 |depth_image_topic|string|depth img topic name|
 |camera_info_topic|string|cam info topic name|
@@ -22,5 +22,6 @@ A node that converts a depth image into a 3D point cloud
 ```
 ros2 launch depthimage_to_pointcloud2 depth_to_pointcloud_launch.xml
 ```
+
 
 
