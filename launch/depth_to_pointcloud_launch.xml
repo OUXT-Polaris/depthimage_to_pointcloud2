@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="image_type"  default="depth"/> 
+  <arg name="depth_image_topic" default="/camera/camera/depth/image_rect_raw"/>
+  <arg name="rgb_image_topic" default="/camera/camera/color/image_raw"/>
+  <arg name="cam_info_topic" default="/camera/camera/depth/camera_info"/>
+  <node_container pkg="rclcpp_components" exec="component_container" name="depthimage_to_pointcloud2_container" namespace="depthimage_to_pointcloud2" >
+    <composable_node pkg="depthimage_to_pointcloud2" plugin="depthimage_to_pointcloud2::Depthimage2Pointcloud2" name="depthimage_to_pointcloud2_node" namespace="depthimage_to_pointcloud2">
+      <param name="image_type" value="$(var image_type)"/>
+      <param name="depth_image_topic" value="$(var depth_image_topic)"/>
+      <param name="rgb_image_topic"  value="$(var rgb_image_topic)"/>
+      <param name="cam_info_topic"  value="$(var cam_info_topic)"/>
+    </composable_node>
+  </node_container>
+</launch>
